@@ -1,0 +1,49 @@
+﻿@model FileValidationCheck.Models.ColonneModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ColonneModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nom_colonne)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nom_colonne)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.regle)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.regle)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fichierID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fichierID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ordre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ordre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.userID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.userID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.colonneID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

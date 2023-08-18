@@ -1,0 +1,57 @@
+﻿@model FileValidationCheck.Models.ColonneModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.AspNetCore.Identity
+@using FileValidationCheck.Areas.Identity.Data
+@inject UserManager<ApplicationUser> UserManager
+<h1>Edit</h1>
+
+<h4>ColonneModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="colonneID" />
+            <div class="form-group">
+                <label asp-for="nom_colonne" class="control-label"></label>
+                <input asp-for="nom_colonne" class="form-control" />
+                <span asp-validation-for="nom_colonne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="regle" class="control-label"></label>
+                <input asp-for="regle" class="form-control" />
+                <span asp-validation-for="regle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fichierID" class="control-label"></label>
+                <input asp-for="fichierID" class="form-control" />
+                <span asp-validation-for="fichierID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ordre" class="control-label"></label>
+                <input asp-for="ordre" class="form-control" />
+                <span asp-validation-for="ordre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userID" class="control-label"></label>
+                <input asp-for="userID" class="form-control" value="@UserManager.GetUserId(User)" readonly />
+                <span asp-validation-for="userID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

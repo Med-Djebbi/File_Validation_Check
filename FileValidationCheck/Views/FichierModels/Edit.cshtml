@@ -1,0 +1,47 @@
+﻿@model FileValidationCheck.Models.FichierModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.AspNetCore.Identity
+@using FileValidationCheck.Areas.Identity.Data
+@inject UserManager<ApplicationUser> UserManager
+<h1>Edit</h1>
+
+<h4>FichierModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="fichierID" />
+            <div class="form-group">
+                <label asp-for="format_nomination" class="control-label"></label>
+                <input asp-for="format_nomination" class="form-control" />
+                <span asp-validation-for="format_nomination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="separateur" class="control-label"></label>
+                <input asp-for="separateur" class="form-control" />
+                <span asp-validation-for="separateur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userID" class="control-label"></label>
+                <input asp-for="userID" class="form-control" value="@UserManager.GetUserId(User)" readonly />
+                <span asp-validation-for="userID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

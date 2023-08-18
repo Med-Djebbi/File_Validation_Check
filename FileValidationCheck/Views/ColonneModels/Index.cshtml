@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FileValidationCheck.Models.ColonneModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.colonneID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nom_colonne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.regle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fichierID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ordre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.colonneID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom_colonne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.regle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fichierID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ordre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.colonneID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.colonneID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.colonneID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
